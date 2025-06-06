@@ -1,0 +1,61 @@
+<html>
+  <head>
+  <script src="main.js"></script>
+  <script type="module">
+  import {LitElement, html} from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+  class MyElement extends LitElement {
+    static properties = {
+      version: {},
+      deps: {},
+    };
+    constructor(str,deps,signal) {
+      super();
+      this.deps = deps;
+      this.content = str;
+      this.signal = signal;
+    }
+    changeText(event) {
+      this.content = event.target.value;
+      this.signal("TEXTCHANGED");
+    }
+    render() {
+      const itemTemplates = [];
+      for (const i in this.deps) {
+        itemTemplates.push(html`<li>${i}:${this.deps[i].data.content}</li>`);
+      }
+      return html`
+      <textarea @change=${this.changeText}>${this.content}</textarea>
+      <ul>${itemTemplates}</ul>
+      `;
+    }
+  }
+  customElements.define('my-element', MyElement);
+
+  window.onload = function () {
+    ComponentGraph.registerTag("hol-comp", class {
+      toString() {
+        return this.data.content;
+      }
+      constructor(str,deps,signal,view) {
+        view.innerHTML = "";
+        var element = new MyElement(str,deps,signal);
+        this.data = element;
+        view.appendChild(element);
+        this.dependencyChanged = (depName, comp) => { element.requestUpdate(); };
+      }
+    })
+  }
+  </script>
+  </head>
+  <body>
+    <hol-comp id="test.html/baz" deps="test.html/foo">
+      Bazza.
+    </hol-comp>
+    <hol-comp id="foo.html/boop">
+      Boop
+    </hol-comp>
+<hol-comp id="test.html/foo" deps="foo.html/bar">
+      Some content.
+    </hol-comp>
+  </body>
+</html>
