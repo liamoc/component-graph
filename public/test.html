@@ -1,9 +1,9 @@
 <html>
   <head>
   <script type="module">
-  import * as ComponentGraph from './main.mjs';
+  import * as ComponentGraph from './componentgraph.mjs';
   import TestComponent from "./testcomponent.mjs";
-  ComponentGraph.registerTag("hol-comp", TestComponent);
+  ComponentGraph.setup({"hol-comp": TestComponent,"hol-blah": TestComponent});
   </script>
   </head>
   <body>
@@ -13,8 +13,8 @@
     <hol-comp id="foo.html/boop">
       Boop
     </hol-comp>
-    <hol-comp id="test.html/foo" deps="foo.html/bar">
+    <hol-blah id="test.html/foo" deps="foo.html/bar">
       Some content.
-    </hol-comp>
+    </hol-blah>
   </body>
 </html>

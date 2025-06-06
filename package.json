@@ -18,7 +18,7 @@
   },
   "tsup": {
     "entry": [
-      "src/main.ts",
+      "src/componentgraph.ts",
       "src/testcomponent.ts"
     ],
     "format": "esm",
