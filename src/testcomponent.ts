@@ -1,6 +1,6 @@
-import { Component } from './main'
+import { Component } from './componentgraph'
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators';
 
 @customElement('my-element')
 class MyElement extends LitElement {
