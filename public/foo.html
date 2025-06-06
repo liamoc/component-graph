@@ -1,18 +1,15 @@
 <html>
   <head>
   <script type="module">
-  import * as ComponentGraph from './main.mjs'
-  import TestComponent from "./testcomponent.mjs"
-  window.onload = function () {
-    ComponentGraph.registerTag("hol-comp", TestComponent)
-  }
+  import * as ComponentGraph from './main.mjs';
+  import TestComponent from "./testcomponent.mjs";
+  ComponentGraph.registerTag("hol-comp", TestComponent);
   </script>
   </head>
   <body>
     <hol-comp id="foo.html/bar">
       Some other content.
     </hol-comp>
-    
     <hol-comp id="foo.html/boop">
       Boop
     </hol-comp>

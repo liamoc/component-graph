@@ -3,7 +3,7 @@ import lunchtime from './lunchtime.js';
 import millisecondsUntil from './millisecondsUntil.js';
 import ms from 'ms';
 
-interface Component {
+export interface Component {
 	toString() : string;
 	dependencyChanged(id: string, comp: Component, msg: any) : void;
 }
