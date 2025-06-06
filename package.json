@@ -17,8 +17,10 @@
   },
   "tsup": {
     "entry": [
-      "src/main.ts"
+      "src/main.ts",
+      "src/testcomponent.js"
     ],
+    "format":"esm",
     "splitting": false,
     "sourcemap": true,
     "clean": true
