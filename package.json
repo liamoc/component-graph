@@ -4,6 +4,8 @@
   "devDependencies": {
     "@swc/core": "^1.11.31",
     "@types/ms": "^0.7.30",
+    "@types/react-dom": "^19.1.6",
+    "rescript": "^11.1.4",
     "ts-node": "^10.9.0",
     "tslib": "^2.8.0",
     "tsup": "^8.5.0",
@@ -12,7 +14,10 @@
   "tsup": {
     "entry": [
       "src/componentgraph.ts",
-      "src/testcomponent.ts"
+      "src/testcomponent.tsx",
+      "src/axiomblock.ts",
+      "src/Demo.res.mjs",
+      "src/Test.res.mjs"
     ],
     "format": "esm",
     "splitting": false,
@@ -20,12 +25,20 @@
     "clean": true
   },
   "scripts": {
-    "build": "tsup --publicDir public"
+    "build": "tsup --publicDir public",
+    "res:build": "rescript",
+    "res:clean": "rescript clean",
+    "res:dev": "rescript -w"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "lit": "^3.3.0"
+    "@rescript/core": "^1.6.1",
+    "@rescript/react": "^0.13.1",
+    "@rescript/std": "^11.1.4",
+    "lit": "^3.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }

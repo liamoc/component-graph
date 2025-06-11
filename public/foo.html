@@ -1,20 +1,24 @@
 <html>
   <head>
   <script type="importmap">
-  {"imports": {"lit": "https://esm.run/lit", "lit/": "https://esm.run/lit/"}}
+  {"imports": 
+    {"@rescript/core/": "https://cdn.jsdelivr.net/npm/@rescript/core/", 
+     "react-dom/": "https://esm.run/react-dom/",
+     "react": "https://esm.run/react"}
+  }
   </script>
   <script type="module">
   import * as ComponentGraph from './componentgraph.mjs';
   import TestComponent from "./testcomponent.mjs";
-  ComponentGraph.setup({"hol-comp": TestComponent,  "hol-blah": TestComponent});
+  ComponentGraph.setup({"hol-comp": TestComponent});
   </script>
   </head>
   <body>
     <hol-comp id="foo.html/bar">
       Some other content.
     </hol-comp>
-    <hol-blah id="foo.html/boop">
+    <hol-comp id="foo.html/boop">
       Boop
-    </hol-blah>
+    </hol-comp>
   </body>
 </html>

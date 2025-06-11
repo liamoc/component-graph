@@ -2,3 +2,7 @@
 node_modules
 /.nova
 /dist
+
+/lib/
+.bsb.lock
+src/*.mjs

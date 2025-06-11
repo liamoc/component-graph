@@ -1,23 +1,56 @@
 <html>
   <head>
   <script type="importmap">
-  {"imports": {"lit": "https://esm.run/lit", "lit/": "https://esm.run/lit/"}}
+  {"imports":     
+  
+  {"rescript/":"https://cdn.jsdelivr.net/npm/rescript/",
+   "@rescript/core/": "https://cdn.jsdelivr.net/npm/@rescript/core/",
+   "@rescript/std/": "https://cdn.jsdelivr.net/npm/@rescript/std/",
+   "react-dom": "https://esm.run/react-dom",
+   "react/jsx-runtime": "https://esm.run/react/jsx-runtime",
+   "react": "https://esm.run/react",
+   "react-dom/": "https://esm.run/react-dom/"}}
   </script>
   <script type="module">
   import * as ComponentGraph from './componentgraph.mjs';
   import TestComponent from "./testcomponent.mjs";
-  ComponentGraph.setup({"hol-comp": TestComponent,"hol-blah": TestComponent});
+  localStorage.clear();
+  ComponentGraph.setup({"hol-comp": TestComponent});
   </script>
+  <style>
+  @font-face {
+  font-family: 'Neo Euler Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Neo Euler Medium'), url('euler.woff') format('woff');
+  }
+  hol-comp {
+    font-family:'Neo Euler Medium';
+  }
+  .var {
+    color: green;
+  }
+  .var_unnamed {
+    color: red;
+  }
+  .schematic {
+    color:gray
+  }
+  .schematic_allowed {
+    font-size:xx-small;
+    font-variant-position:sub;
+  }
+  </style>
   </head>
   <body>
     <hol-comp id="test.html/baz" deps="test.html/foo">
-      Bazza.
+      Foo
     </hol-comp>
     <hol-comp id="foo.html/boop">
-      Boop
+      (this is a ?43(a b \3))
     </hol-comp>
-    <hol-blah id="test.html/foo" deps="foo.html/bar">
-      Some content.
-    </hol-blah>
+    <hol-comp id="test.html/foo">
+      (this is (a \4) test)
+    </hol-comp>
   </body>
 </html>

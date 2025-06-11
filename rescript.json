@@ -1,0 +1,26 @@
+{
+  "name": "component-graph",
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "external-stdlib" : "@rescript/std",
+  "package-specs": {
+    "module": "esmodule",
+    "in-source": true
+  },
+  "jsx": { "version": 4 },
+  "suffix": ".mjs",
+  "bs-dependencies": [
+    "@rescript/core",
+    "@rescript/react"
+  ],
+  "bsc-flags": [
+    "-open RescriptCore"
+  ],
+  "gentypeconfig": {
+    "module": "esmodule",
+    "moduleResolution": "node",
+    "generatedFileExtension": ".gen.tsx"
+  }
+}
